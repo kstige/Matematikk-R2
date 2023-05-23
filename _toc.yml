@@ -2,8 +2,13 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: intro
-chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
+root: docs/intro
+options:
+  numbered: true
+
+parts:
+- caption: Oppstart
+  chapters:
+  - file: docs/markdown
+  - file: docs/notebooks
+  - file: docs/markdown-notebooks
