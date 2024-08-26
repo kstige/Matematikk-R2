@@ -3,10 +3,30 @@
 
 format: jb-book
 root: docs/intro
-options:
-  numbered: true
 
 parts:
-- caption: Oppstart
+- caption: 1 - Følger og rekker
+  numbered: 1
   chapters:
-  - file: docs/test
+  - file: docs/folgerrekker/folgerrekker
+  - file: docs/folgerrekker/aritmetisk
+  - file: docs/folgerrekker/geometrisk
+  - file: docs/folgerrekker/digitalefolgerrekker
+  - file: docs/folgerrekker/induksjonsbevis
+- caption: 2 - Funksjoner og integrasjon
+  numbered: 1
+  chapters:
+  - file: docs/integrasjon/areal
+- caption: 3 - Trigonometri
+  numbered: 1
+  chapters:
+  - file: docs/trigonometri/enhetssirkelen
+- caption: 4 - Numeriske metoder og modeller
+  numbered: 1
+  chapters:
+  - file: docs/numerikkmodeller/modeller
+- caption: 5 - Vektorer
+  numbered: 1
+  chapters:
+  - file: docs/vektorer/repetisjon
+  

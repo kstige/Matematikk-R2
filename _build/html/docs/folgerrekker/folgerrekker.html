@@ -1,0 +1,702 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="nb-NO" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>1. Følger og rekker &#8212; Matematikk R2</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/iframe-scale.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/myadmonitions.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/folgerrekker/folgerrekker';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Søk" href="../../search.html" />
+    <link rel="next" title="2. Aritmetiske rekker" href="aritmetisk.html" />
+    <link rel="prev" title="Matematikk R2" href="../intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="nb-NO"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">1 - Følger og rekker</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Følger og rekker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aritmetisk.html">2. Aritmetiske rekker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geometrisk.html">3. Geometriske rekker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="digitalefolgerrekker.html">4. Følger og rekker digitalt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="induksjonsbevis.html">5. Induksjonsbevis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">2 - Funksjoner og integrasjon</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../integrasjon/areal.html">1. Arealet under grafen</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">3 - Trigonometri</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../trigonometri/enhetssirkelen.html">1. Enhetssirklen</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">4 - Numeriske metoder og modeller</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../numerikkmodeller/modeller.html">1. Modeller</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">5 - Vektorer</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../vektorer/repetisjon.html">1. Litt repetisjon</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/folgerrekker/folgerrekker.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Søk" aria-label="Søk" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Følger og rekker</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#folger">Følger</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rekursive-formler">Rekursive formler</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplisitte-formler">Eksplisitte formler</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rekker">Rekker</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="folger-og-rekker">
+<h1><span class="section-number">1. </span>Følger og rekker<a class="headerlink" href="#folger-og-rekker" title="Permalink to this heading">#</a></h1>
+<div class="utbytte dropdown admonition">
+<p class="admonition-title">Læringsutbytte</p>
+<p>I dette temaet arbeider vi med kompetansemålene:</p>
+<ul class="simple">
+<li><p>utforske egenskaper ved ulike rekker og gjøre rede for praktiske anvendelser av egenskaper ved rekker</p></li>
+<li><p>utforske rekursive sammenhenger ved å bruke programmering og presentere egne framgangsmåter</p></li>
+</ul>
+<p>Etter å ha arbeidet med temaet, skal du:</p>
+<ul class="simple">
+<li><p>vite hva vi mener med endelige og uendelige følger</p></li>
+<li><p>forstå og bruke rekursive og eksplisitte formler for følger</p></li>
+<li><p>forklare forskjellen mellom følger og rekker</p></li>
+<li><p>kjenne til summasjonstegnet og hva vi mener med summen av ei rekke</p></li>
+</ul>
+</div>
+<section id="folger">
+<h2>Følger<a class="headerlink" href="#folger" title="Permalink to this heading">#</a></h2>
+<p>Naturen rundt oss kan ofte virke som et kaos, men når vi begynner å lete vil vi finne mange skjulte mønster. Slik er det også i matematikken. Matematiske sammenhenger leder ofte til følger av tall som følger etter hverandre i et bestemt system. Dette kaller vi for tallfølger, eller bare følger.</p>
+<div class="def admonition">
+<p class="admonition-title">Tallfølger</p>
+<p>Ei tallfølge (følge) er en liste av tall der tallene avhenger av hverandre av et gitt system. En følge med navn <span class="math notranslate nohighlight">\(a\)</span> kan vi skrive som <span class="math notranslate nohighlight">\(\{a_n\}\)</span>, der <span class="math notranslate nohighlight">\(a_n\)</span> er <strong>leddet</strong> med leddnummer <span class="math notranslate nohighlight">\(n\)</span> i følgen (<span class="math notranslate nohighlight">\(n\in\mathbf{N}\)</span>).</p>
+<div class="math notranslate nohighlight">
+\[a_1, a_2, a_3, ..., a_n, ...\]</div>
+<p>Vi skiller mellom <strong>endelige</strong> og <strong>uendelige</strong> følger.</p>
+<p><strong>Endelig følge:</strong> <span class="math notranslate nohighlight">\(2, 4, 6, 8\)</span></p>
+<p><strong>Uendelig følge:</strong> <span class="math notranslate nohighlight">\(2, 4, 6, 8, ...\)</span></p>
+</div>
+<p>For å oppgi en følge trenger vi metoder for å oppsummere sammenhengen mellom leddene. Til det kan vi bruke <strong>rekursive</strong> eller <strong>eksplisitte</strong> formler.</p>
+<section id="rekursive-formler">
+<h3>Rekursive formler<a class="headerlink" href="#rekursive-formler" title="Permalink to this heading">#</a></h3>
+<p>Ordet rekursiv betyr noe som gjentas. Mange følger oppgis med det vi kaller en rekursiv formel.</p>
+<div class="def admonition">
+<p class="admonition-title">Rekursiv formel</p>
+<p>En formel er rekursiv dersom formelen for et ledd avhenger av et eller flere tidligere ledd i følgen.</p>
+<p>Formelen er ofte slik at <span class="math notranslate nohighlight">\(a_{n}\)</span> avhenger av leddet <span class="math notranslate nohighlight">\(a_{n-1}\)</span>. I tillegg trenger vi et ledd i følgen (gjerne det første) for at formelen skal gi en spesifikk følge.</p>
+</div>
+<div class="eksempel admonition">
+<p class="admonition-title">Eksempel 1</p>
+<p>Tallfølgene <span class="math notranslate nohighlight">\(\{a_n\}\)</span> og <span class="math notranslate nohighlight">\(\{b_n\}\)</span> er gitt rekursivt ved:</p>
+<p><span class="math notranslate nohighlight">\(a_n = a_{n-1} +2, \hspace{20px} n\geq 2, \hspace{20px} a_1 = 2\)</span></p>
+<p><span class="math notranslate nohighlight">\(b_{n+1} = 2b_n - 1, \hspace{20px} n \geq 1, \hspace{20px} b_1 = 4\)</span></p>
+<p>Finn de fire første leddene i tallfølgene.</p>
+<div class="ekslos dropdown admonition">
+<p class="admonition-title">Løsning</p>
+<p>Vi ser at for begge følgene, så avhenger et ledd av det forrige leddet i følgen. For å finne leddene må vi derfor beregne et og et ledd.</p>
+<p><strong>a)</strong></p>
+<p><span class="math notranslate nohighlight">\(\begin{align}
+a_1 &amp;= 2 \\
+a_2 &amp;= a_1 + 2 = 2 + 2 = 4 \\
+a_3 &amp;= a_2 + 2 = 4 + 2 = 6 \\
+a_4 &amp;= a_3 + 2 = 6 + 2 = 8
+\end{align}\)</span></p>
+<p><strong>b)</strong></p>
+<p><span class="math notranslate nohighlight">\(\begin{align}
+b_1 &amp;= 4 \\
+b_2 &amp;= 2\cdot b_1 - 1 = 2\cdot 4 - 1 = 7 \\
+b_3 &amp;= 2\cdot b_2 - 1 = 2\cdot 7 - 1 = 13 \\
+b_4 &amp;= 2\cdot b_3 - 1 = 2\cdot 13 - 1 = 25
+\end{align}\)</span></p>
+</div>
+<div class="videolos dropdown admonition">
+<p class="admonition-title">Videoløsning</p>
+<p>Her kommer video</p>
+</div>
+</div>
+<div class="eksempel admonition">
+<p class="admonition-title">Eksempel 2</p>
+<p>Tallfølgen <span class="math notranslate nohighlight">\(\{f_n\}\)</span> er gitt rekursivt ved:</p>
+<p><span class="math notranslate nohighlight">\(f_n = f_{n-1} +f_{n-2}, \hspace{20px} n\geq 3, \hspace{20px} f_1 = f_2 = 1\)</span></p>
+<p>Finn de fem første leddene i tallfølgene.</p>
+<div class="ekslos dropdown admonition">
+<p class="admonition-title">Løsning</p>
+<p><span class="math notranslate nohighlight">\(\begin{align}
+f_1 &amp;= 1 \\
+f_2 &amp;= 1 \\
+f_3 &amp;= f_2 + f_1 = 1 + 1 = 2 \\
+f_4 &amp;= f_3 + f_2 = 2 + 1 = 3 \\
+f_5 &amp;= f_4 + f_3 = 3 + 2 = 5 \\
+\end{align}\)</span></p>
+<p>Denne følgen kalles for Fibonacci-følgen og fortsetter slik:</p>
+<div class="math notranslate nohighlight">
+\[1, 1, 2, 3, 5, 8, 13, 21, 34, 55, ...\]</div>
+<p>Her ser vi at hvert ledd er summen av de to foregående leddene. Siden den rekursive formelen avhenger av to tidligere ledd er vi også avhengig av at begge de første leddene er oppgitt for å kunne finne følgen.</p>
+</div>
+<div class="videolos dropdown admonition">
+<p class="admonition-title">Videoløsning</p>
+<p>Her kommer video</p>
+</div>
+</div>
+<p>Bruken av rekursive formler er forholdsvis rett fram så lenge man holder styr på at de nedsenkede <span class="math notranslate nohighlight">\(n\)</span>-ene beskriver nummer på ledd i rekken og ikke regneoperasjoner i formlene.</p>
+<p>Før vi går over til eksplisitte formler tar vi også et eksempel der vi skal finne den rekursive formelen fra ei gitt tallfølge.</p>
+<div class="eksempel admonition">
+<p class="admonition-title">Eksempel 3</p>
+<p>Finn den rekursive formelen for disse tallfølgene</p>
+<p><strong>a)</strong> <span class="math notranslate nohighlight">\(20, 16, 12, 8, ...\)</span></p>
+<p><strong>b)</strong> <span class="math notranslate nohighlight">\(1, -3, 9, -27, ...\)</span></p>
+<p><strong>c)</strong> <span class="math notranslate nohighlight">\(1, 3, 12, 148, ...\)</span></p>
+<div class="ekslos dropdown admonition">
+<p class="admonition-title">Løsning</p>
+<p>Vi har ingen bestemt metode vi kan bruke for å finne rekursive formler for følger. Vi må selv lete etter system ved å prøve oss fram.</p>
+<p><strong>a)</strong></p>
+<p><span class="math notranslate nohighlight">\(\begin{align}
+a_1 &amp;= 20 \\
+a_2 &amp;= 16 = 20 - 4 = a_1 - 4 \\
+a_3 &amp;= 12 = 16 - 4 = a_2 - 4 \\
+a_4 &amp;= 8 = 12 - 4 = a_3 - 4 \\
+\end{align}\)</span></p>
+<p>Her ser vi at følgen er gitt ved <span class="math notranslate nohighlight">\(a_n = a_{n-1} - 4, \hspace{20px} n\geq 2, \hspace{20px} a_1=20\)</span>.</p>
+<p><strong>b)</strong></p>
+<p><span class="math notranslate nohighlight">\(\begin{align}
+b_1 &amp;= 1 \\
+b_2 &amp;= -3 = -3\cdot 1 = -3b_1 \\
+b_3 &amp;= 9 = -3\cdot (-3) = -3b_2 \\
+b_4 &amp;= -27 = -3\cdot 9 = -3b_3 \\
+\end{align}\)</span></p>
+<p>Her ser vi at følgen er gitt ved <span class="math notranslate nohighlight">\(b_n = -3b_{n-1}, \hspace{20px} n\geq 2, \hspace{20px} b_1=1\)</span>.</p>
+<p><strong>c)</strong></p>
+<p><span class="math notranslate nohighlight">\(\begin{align}
+c_1 &amp;= 1 \\
+c_2 &amp;= 3 = 1^2+2 = a_1^2 + 2 \\
+c_3 &amp;= 12 = 3^2+3 = a_2^2 + 3 \\
+c_4 &amp;= 148 = 12^2+4 = a_3^2 + 4 \\
+\end{align}\)</span></p>
+<p>Den her er ikke lett å komme fram til, men vi ser at følgen er gitt ved <span class="math notranslate nohighlight">\(c_n = c_{n-1}^2 + n, \hspace{20px} n\geq 2, \hspace{20px} c_1=1\)</span>.</p>
+</div>
+<div class="videolos dropdown admonition">
+<p class="admonition-title">Videoløsning</p>
+<p>Her kommer video</p>
+</div>
+</div>
+</section>
+<section id="eksplisitte-formler">
+<h3>Eksplisitte formler<a class="headerlink" href="#eksplisitte-formler" title="Permalink to this heading">#</a></h3>
+<p>Eksplisitte formler er vi mer vant til fra tidligere. Det er formler der vi kan regne ut ledd <span class="math notranslate nohighlight">\(n\)</span> uten å kjenne verdiene til de tidligere leddene. Kjente eksempler er formlene for partall, oddetall og kvadrattall:</p>
+<p><strong>Partall:</strong> <span class="math notranslate nohighlight">\(p_n = 2\cdot n\)</span></p>
+<p><strong>Oddetall:</strong> <span class="math notranslate nohighlight">\(o_n = 2\cdot n - 1\)</span></p>
+<p><strong>Kvadrattall:</strong> <span class="math notranslate nohighlight">\(k_n = n^2\)</span></p>
+<p>Det finnes ingen bestemt metode for å finne eksplisitte formler for følger. Vi må bruke kreativitet og lete etter system og sammenhenger. Ofte vil det være gunstig å skrive opp de første leddene i følgen og <em>splitte</em> de opp i liknende regnestykker.</p>
+<div class="eksempel admonition">
+<p class="admonition-title">Eksempel 4</p>
+<p>Finn den eksplisitte formelen for følgen <span class="math notranslate nohighlight">\(a_n = a_{n-1} - 4, \hspace{20px} n\geq 2, \hspace{20px} a_1=20\)</span> som vi så på i eksempel 3.</p>
+<div class="ekslos dropdown admonition">
+<p class="admonition-title">Løsning</p>
+<p>Vi har ingen bestemt metode vi kan bruke for å finne rekursive formler for følger. Vi må selv lete etter system ved å prøve oss fram.</p>
+<p><span class="math notranslate nohighlight">\(\begin{align}
+a_1 &amp;= 20 = 20 - 4\cdot 0\\
+a_2 &amp;= a_1 - 4 = 20 - 4\cdot 1\\
+a_3 &amp;= a_2 - 4 = a_1 - 4 - 4 = 20 - 4\cdot 2\\
+a_4 &amp;= a_3 - 4 = a_1 - 4\cdot 2 - 4 = 20 - 4\cdot 3\\
+\end{align}\)</span></p>
+<p>Her ser vi at alle leddene kan skrives på formen <span class="math notranslate nohighlight">\(a_n = 20-4n\)</span>. Dette er den eksplisitte formelen for følgen.</p>
+</div>
+<div class="videolos dropdown admonition">
+<p class="admonition-title">Videoløsning</p>
+<p>Her kommer video</p>
+</div>
+</div>
+<p>I eksempelet over kom vi fram til en eksplisitt formel ved å lete etter et system. Det er viktig å merke seg at vi ikke har bevist formelen, men kun <em>anskueliggjort</em> at det er en riktig formel for følgen. En metode for å bevise at denne formelen stemmer skal vi se på når vi kommer til induksjonsbevis.</p>
+<p>Slike eksplisitte formler kan vi i mange tilfeller også komme fram til ved hjelp av regresjon som vi skal se på under digitale hjelpemidler.</p>
+<div class="eksempel admonition">
+<p class="admonition-title">Eksempel 5</p>
+<p>Trekanttallene <span class="math notranslate nohighlight">\(1, 3, 6, 10, 15, ...\)</span> er gitt ved den rekursive sammenhengen</p>
+<div class="math notranslate nohighlight">
+\[a_n = a_{n-1} + n, \hspace{20px} n\geq 2, \hspace{20px} a_1 = 1\]</div>
+<p>Finn en eksplisitt formel for trekanttallene.</p>
+<div class="ekslos dropdown admonition">
+<p class="admonition-title">Løsning</p>
+<p>Sammenhengen mellom trekanttallene er ikke så lett å finne ved regning, men tilbake i 1T så vi på trekanttallene geometrisk. Ved å tegne opp tallene kan vi lettere <em>gjette</em> på en formel. I den første figuren tegner vi opp de tre første trekanttallene, mens vi i den neste har tegnet rektangeltallene og markert trekanttallene med rødt.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/trekanttall2.png"><img alt="../../_images/trekanttall2.png" src="../../_images/trekanttall2.png" style="width: 319.5px; height: 153.5px;" /></a>
+</figure>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/trekanttall1.png"><img alt="../../_images/trekanttall1.png" src="../../_images/trekanttall1.png" style="width: 449.0px; height: 165.5px;" /></a>
+</figure>
+<p>Rektangeltallene ser vi at er gitt ved <span class="math notranslate nohighlight">\(R_n = \displaystyle{n(n+1)}\)</span>. Siden trekanttallene skal være halvparten vil en eksplisitt formel for trekanttallene være</p>
+<div class="math notranslate nohighlight">
+\[T_n = \displaystyle{\frac{n(n+1)}{2}}\]</div>
+</div>
+<div class="videolos dropdown admonition">
+<p class="admonition-title">Videoløsning</p>
+<p>Her kommer video</p>
+</div>
+</div>
+</section>
+</section>
+<section id="rekker">
+<h2>Rekker<a class="headerlink" href="#rekker" title="Permalink to this heading">#</a></h2>
+<div class="def admonition">
+<p class="admonition-title">Rekker</p>
+<p>Ved å sette pluss mellom leddene i en følge, så ender vi opp med ei rekke. Følgen <span class="math notranslate nohighlight">\(a_1, a_2, a_3, ..., a_n, ...\)</span> gir rekka</p>
+<p>$<span class="math notranslate nohighlight">\(a_1 + a_2 + a_3 + ... + a_n + ...\)</span></p>
+<p>Vi skiller mellom endelige og uendelige rekker på samme måte som vi skiller mellom endelige og uendelige følger.</p>
+</div>
+<p>Når vi senere skal se på praktiske anvendelser av følger og rekker vil vi ofte ha interesse av å vite hva summen av rekker (eller deler av rekker) blir. Ei rekke vil inneholde mange delsummer</p>
+<p><span class="math notranslate nohighlight">\(\begin{align}
+s_1 &amp;= a_1\\
+s_2 &amp;= a_1 + a_2\\
+s_3 &amp;= a_1 + a_2 + a_3\\
+&amp;\vdots \\
+s_n &amp;= a_1 + a_2 + \dots + a_n
+\end{align}\)</span></p>
+<p>Her ser vi at delsummene også vil danne ei følge <span class="math notranslate nohighlight">\(\{s_n\}. Ved å studere system i denne følgen kan det i en del tilfeller være mulig å finne en eksplisitt formel for delsummene \)</span>s_n$.</p>
+<p>Når vi arbeider med summer av rekker trenger vi litt ny notasjon som kan forenkle arbeidet vårt. Framover kommer vi til å bruke summasjonstegnet til mange summer.</p>
+<div class="def admonition">
+<p class="admonition-title">Summasjonstegnet</p>
+<p>Summen av de <span class="math notranslate nohighlight">\(n\)</span> første leddene i en rekke er gitt ved</p>
+<div class="math notranslate nohighlight">
+\[s_n = a_1 + a_2 + a_3 + ... + a_n = \sum_{i=1}^{n} a_i\]</div>
+<p>Notasjonen betyr at vi skal legge sammen alle <span class="math notranslate nohighlight">\(a_i\)</span> der <span class="math notranslate nohighlight">\(i\)</span> går fra <span class="math notranslate nohighlight">\(1\)</span> og opp til <span class="math notranslate nohighlight">\(n\)</span>.</p>
+</div>
+<div class="eksempel admonition">
+<p class="admonition-title">Eksempel 6</p>
+<p>Skriv opp summen av de 10 første leddene og summen av leddene fra og med 12 til og med 16 i rekken gitt ved den eksplisitte formelen:</p>
+<p><span class="math notranslate nohighlight">\(a_n = 2\cdot n + 4\)</span></p>
+<div class="ekslos dropdown admonition">
+<p class="admonition-title">Løsning</p>
+<p>Summen av de 10 første leddene:</p>
+<div class="math notranslate nohighlight">
+\[s_{10} = \sum_{i=1}^{10}a_i =\sum_{i=1}^{10} (2i+4)\]</div>
+<p>Summen av leddene fra og med 12 til og med 16:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{i=12}^{16}a_i = \sum_{i=12}^{16}(2i+4)\]</div>
+<p>Merk at parentesene rundt <span class="math notranslate nohighlight">\(2i+4\)</span> strengt tatt ikke er nødvendig, men er lure å ha for at vi skal huske at <span class="math notranslate nohighlight">\(+4\)</span> hører til inne i summasjonen.</p>
+</div>
+<div class="videolos dropdown admonition">
+<p class="admonition-title">Videoløsning</p>
+<p>Her kommer video</p>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs\folgerrekker"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">forrige</p>
+        <p class="prev-next-title">Matematikk R2</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="aritmetisk.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">neste</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Aritmetiske rekker</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#folger">Følger</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rekursive-formler">Rekursive formler</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplisitte-formler">Eksplisitte formler</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rekker">Rekker</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kristoffer Stige
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
